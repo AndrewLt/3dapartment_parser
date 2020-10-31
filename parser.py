@@ -44,6 +44,7 @@ class ApartmentsParser:
         time.sleep(3)
         address = self.driver.find_element_by_xpath('//div[@class=\'listing-address\']').text
         price = self.driver.find_element_by_xpath("//div[@class='price main-value']").text
+        price = price.replace('$ ', '')
         try:
             beds, baths = self.driver.find_elements_by_xpath("//div[@class='num main-value']")
         except ValueError:
